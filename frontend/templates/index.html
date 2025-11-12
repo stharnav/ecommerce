@@ -1,11 +1,166 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Otaku Mart</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
-    <h1>Hello {{ username }}, welcome to the E-commerce site!</h1>
+    <section id="mynav">
+           <img src="{% static 'images/logo.jpg' %}" class="logo" alt="Logo">
+           <div>
+             <ul id="bar">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="#">Category</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+             </ul>
+           </div>
+    </section>
+
+    <section class="coursel">
+        <div class="slider">
+            <div class="slides">
+                <img id="slides1" src="{% static 'images/aot.jpg' %}" alt="Aot">
+                <img id="slides2" src="{% static 'images/yor.jpg' %}" alt="Yor">
+                <img id="slides3" src="{% static 'images/chainsawman.jpg' %}" alt="Luffy">
+                <img id="slides4" src="{% static 'images/lightbox.jpg' %}" alt="Light">
+                <img id="slides5" src="{% static 'images/katana.jpg' %}" alt="Katana">
+            </div>
+            <button class="btn prev" id="prevBtn">&#10094;</button>
+            <button class="btn next" id="nextBtn">&#10095;</button>
+            <div class="myslider">
+                <a href="#slides1"></a>
+                <a href="#slides2"></a>
+                <a href="#slides3"></a>
+                <a href="#slides4"></a>
+                <a href="#slides5"></a>
+            </div>
+        </div>
+    </section>
+
+   <script>
+  const slides = document.getElementById('slides');
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+
+  let scrollAmount = 0;
+  const slideWidth = slides.clientWidth;
+
+  nextBtn.addEventListener('click', () => {
+    slides.scrollBy({ left: slideWidth, behavior: 'smooth' });
+  });
+
+  prevBtn.addEventListener('click', () => {
+    slides.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+  });
+</script>
+
+<section id="new" class="newproduct">
+  <h2>New Product</h2>
+  <!--First Product-->
+  <div class="box">
+    <div class="product">
+      <img src="{% static 'prouctimg/zoro.jpg' %}" alt="zoro">
+       <div class="description">
+          <h4>Zoro Action Figure</h4>
+          <span>In stock(12)</span>
+          <h5>Rs.1300</h5>
+          <button>Add to cart</button>
+       </div>
+    </div>
+  <!--Second Product-->
+    <div class="product">
+      <img src="{% static 'prouctimg/gojo.jpg' %}" alt="zoro">
+       <div class="description">
+          <h4>Gojo Action Figure</h4>
+          <span>In stock(4)</span>
+          <h5>Rs.1350</h5>
+          <button>Add to cart</button>
+       </div>
+    </div>
+
+    <!--Third Product-->
+    <div class="product">
+      <img src="{% static 'prouctimg/kakashi.jpg' %}" alt="zoro">
+       <div class="description">
+          <h4>Kakashi Action Figure</h4>
+          <span>In stock(10)</span>
+          <h5>Rs.1150</h5>
+          <button>Add to cart</button>
+       </div>
+    </div>
+
+    <!--Fourth Product-->
+    <div class="product">
+      <img src="{% static 'prouctimg/kaneki.jpg' %}" alt="zoro">
+       <div class="description">
+          <h4>Kaneki Action Figure</h4>
+          <span>In stock(4)</span>
+          <h5>Rs.1200</h5>
+          <button>Add to cart</button>
+       </div>
+    </div>
+  </div>
+</section>
+
+<section id="new1" class="newproduct">
+  <h2>Featured Product</h2>
+  <!--First Product-->
+  <div class="box">
+    <div class="product">
+      <img src="{% static 'prouctimg/luffybox.jpg' %}" alt="zoro">
+       <div class="description">
+          <h4>Luffy Light Box</h4>
+          <span>In stock(7)</span>
+          <h5>Rs.1900</h5>
+          <button>Add to cart</button>
+       </div>
+    </div>
+  <!--Second Product-->
+    <div class="product">
+      <img src="{% static 'prouctimg/itach box.jpg' %}" alt="zoro">
+       <div class="description">
+          <h4>Itachi Light Box</h4>
+          <span>In stock(7)</span>
+          <h5>Rs.1900</h5>
+          <button>Add to cart</button>
+       </div>
+    </div>
+
+    <!--Third Product-->
+    <div class="product">
+      <img src="{% static 'prouctimg/zoroearing.jpg' %}" alt="zoro">
+       <div class="description">
+          <h4>Zoro earring</h4>
+          <span>In stock(20)</span>
+          <h5>Rs.450</h5>
+          <button>Add to cart</button>
+       </div>
+    </div>
+
+    <!--Fourth Product-->
+    <div class="product">
+      <img src="{% static 'prouctimg/obitomask.jpg' %}" alt="zoro">
+       <div class="description">
+          <h4>Obito Mask</h4>
+          <span>In stock(9)</span>
+          <h5>Rs.900</h5>
+          <button>Add to cart</button>
+       </div>
+    </div>
+  </div>
+</section>
+
+<section id="last">
+  <h4>Contact: 9847225678</h4>
+  <h3>Address: Chyasal,Lalitpur</h3>
+  <h3>Email: otaku_mart677@gmail.com</h3>
+</section>
+
 </body>
 </html>
