@@ -2,13 +2,18 @@ from django.db import models
 
 
 class User(models.Model):
-    first_name = models.TextField()
-    last_name = models.TextField()
-    password = models.TextField()
-    sex = models.IntegerField()
-    date_of_birth = models.DateTimeField()
-    role = models.IntegerField()
-    address = models.TextField(null=True, blank=True)
+    SEX_CHOICES = [(0, 'Male'), (1, 'Female'), (2, 'Other')]
+    ROLE_CHOICES = [(0, 'Admin'), (1, 'Vendor'),
+                    (2, 'Customer'), (3, 'Delivery')]
+
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.CharField(max_length=150)
+    password = models.CharField(max_length=128)  # for hashed password
+    sex = models.IntegerField(choices=SEX_CHOICES)
+    date_of_birth = models.DateField()
+    role = models.IntegerField(choices=ROLE_CHOICES)
+    address = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
