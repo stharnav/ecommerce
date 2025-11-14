@@ -45,28 +45,48 @@ body {
   color: #e26a08;
 }
 
-.carousel {
+#carouselExampleIndicators {
   width: 100%;
-  overflow: hidden;
-  max-height: 500px;
+  max-width: 1200px; 
+  margin: 0 auto;
 }
 
-.slider {
-  display: flex;
-  animation: slide 12s infinite;
+.carousel-inner {
+  height: 500px;  
 }
 
-.slider img {
+.carousel-item img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;     
+  object-position: center;
+  background-color: #000;  
+  display: block;
 }
 
-@keyframes slide {
-  0% { transform: translateX(0%); }
-  33% { transform: translateX(-100%); }
-  66% { transform: translateX(-200%); }
-  100% { transform: translateX(0%); }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1); 
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #fff;
+  opacity: 0.5;
+}
+.carousel-indicators .active {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .carousel-inner {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-inner {
+    height: 250px;
+  }
 }
 
 .product-section {
