@@ -8,6 +8,7 @@ class User(models.Model):
 
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    username = models.CharField(max_length=150, unique=True)
     email = models.CharField(max_length=150)
     password = models.CharField(max_length=128)  # for hashed password
     sex = models.IntegerField(choices=SEX_CHOICES)

@@ -14,6 +14,7 @@ class Command(BaseCommand):
             UserModel.objects.create(
                 first_name='Admin',
                 last_name='User',
+                username='admin',
                 password=make_password('admin123'),
                 sex=2,
                 date_of_birth='1990-01-01',
