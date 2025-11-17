@@ -8,6 +8,8 @@
 body {
   background-color: #fafafa;
   color: #222;
+  font-family: 'Inter', sans-serif;
+
 }
 
 .navbar {
@@ -45,49 +47,7 @@ body {
   color: #e26a08;
 }
 
-#carouselExampleIndicators {
-  width: 100%;
-  max-width: 1200px; 
-  margin: 0 auto;
-}
 
-.carousel-inner {
-  height: 500px;  
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;     
-  object-position: center;
-  background-color: #000;  
-  display: block;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: invert(1); 
-}
-
-.carousel-indicators [data-bs-target] {
-  background-color: #fff;
-  opacity: 0.5;
-}
-.carousel-indicators .active {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .carousel-inner {
-    height: 350px;
-  }
-}
-
-@media (max-width: 480px) {
-  .carousel-inner {
-    height: 250px;
-  }
-}
 
 .product-section {
   text-align: center;
@@ -101,20 +61,20 @@ body {
 }
 
 .products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 2rem;
+  max-width: 1200px;
+  margin: 14px;
 }
 
 .product {
-  background: white;
+   background: white;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  width: 230px;
   padding: 1rem;
   text-align: center;
-  transition: transform 0.2s;
+  transition: 0.2s;
 }
 
 .product:hover {
@@ -122,9 +82,11 @@ body {
 }
 
 .product img {
-  width: 100%;
+   width: 100%;
+  height: 220px;      
   border-radius: 8px;
   margin-bottom: 1rem;
+  object-fit: contain;
 }
 
 .product h4 {
@@ -149,6 +111,18 @@ body {
 
 .product button:hover {
   background-color: #ff812d;
+}
+
+@media (max-width: 768px) {
+  .product img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product img {
+    height: 160px;
+  }
 }
 
 .footer {
