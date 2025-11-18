@@ -6,3 +6,6 @@ from django.http import HttpResponse
 def home(request):
     # return HttpResponse("Hello, welcome to the E-commerce site!")
     return render(request, 'index.html', {'username': 'Ravi'})
+
+def admin_dashboard(request):
+    return render(request,'admin/dashboard.html')
