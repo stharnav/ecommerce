@@ -31,34 +31,52 @@
 
     <div class="content" id="content">
         <h1>Dashboard</h1>
+
         <div class="card-container">
-    
-    <div class="card1">
-        <div class="card-icon1">📦</div>
-        <h3>Total Products</h3>
-        <p>120</p>
-    </div>
 
-    <div class="card2">
-        <div class="card-icon2">👤</div>
-        <h3>Total Users</h3>
-        <p>540</p>
-    </div>
+            <div class="card1">
+                <div class="card-icon1">📦</div>
+                <h3>Total Products</h3>
+                <p>120</p>
+            </div>
 
-    <div class="card3">
-        <div class="card-icon3">🛒</div>
-        <h3>Total Orders</h3>
-        <p>89</p>
-    </div>
+            <div class="card2">
+                <div class="card-icon2">👤</div>
+                <h3>Total Users</h3>
+                <p>540</p>
+            </div>
 
-    <div class="card4">
-        <div class="card-icon4">💰</div>
-        <h3>Earnings</h3>
-        <p>$4,230</p>
-    </div>
+            <div class="card3">
+                <div class="card-icon3">🛒</div>
+                <h3>Total Orders</h3>
+                <p>89</p>
+            </div>
 
-</div>
-    </div>
+            <div class="card4">
+                <div class="card-icon4">💰</div>
+                <h3>Earnings</h3>
+                <p>$4,230</p>
+            </div>
+
+        </div>
+
+        <div class="chart-row-fixed">
+
+            <div class="chart-card-fixed">
+                <h3>Sales Line Graph</h3>
+                <canvas id="lineChart"></canvas>
+            </div>
+
+            <div class="chart-card-fixed">
+                <h3>Orders Bar Graph</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+
+        </div>
+
+    </div> 
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
         const sidebar = document.getElementById("sidebar");
@@ -69,6 +87,34 @@
             sidebar.classList.toggle("collapse");
             content.classList.toggle("collapse");
         };
+
+        const lineCtx = document.getElementById("lineChart").getContext("2d");
+        new Chart(lineCtx, {
+            type: "line",
+            data: {
+                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+                datasets: [{
+                    label: "Sales",
+                    data: [120, 190, 300, 250, 320, 400],
+                    borderWidth: 2,
+                    borderColor: "#4e73df",
+                    fill: false
+                }]
+            }
+        });
+
+        const barCtx = document.getElementById("barChart").getContext("2d");
+        new Chart(barCtx, {
+            type: "bar",
+            data: {
+                labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                datasets: [{
+                    label: "Orders",
+                    data: [30, 45, 50, 40, 60, 70],
+                    backgroundColor: "#1cc88a"
+                }]
+            }
+        });
     </script>
 
 </body>
