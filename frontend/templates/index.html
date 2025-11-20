@@ -20,95 +20,96 @@
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <header class="navbar">
-    <img src="{% static 'images/logo.jpg' %}" class="logo" alt="Otaku Mart">
-    <nav>
-      <ul class="nav-links">
-        <li><a class="active" href="index.html">Home</a></li>
-        <li><a href="#">Category</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
-      </ul>
-    </nav>
-  </header>
-   
-   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  <div class="container">
+    <header class="navbar">
+      <img src="{% static 'images/logo.jpg' %}" class="logo" alt="Otaku Mart">
+      <nav>
+        <ul class="nav-links">
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="#">Category</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/aot.jpg' %}" class="d-block w-100" alt="aot">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/yor.jpg' %}" class="d-block w-100" alt="yor">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/katana.jpg' %}" class="d-block w-100" alt="katana">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{% static 'images/aot.jpg' %}" class="d-block w-100" alt="aot">
-    </div>
-    <div class="carousel-item">
-      <img src="{% static 'images/yor.jpg' %}" class="d-block w-100" alt="yor">
-    </div>
-    <div class="carousel-item">
-      <img src="{% static 'images/katana.jpg' %}" class="d-block w-100" alt="katana">
-    </div>
+
+    <section class="product-section">
+      <h2>New Arrivals</h2>
+      <div class="products">
+        <div class="product">
+          <img src="{% static 'prouctimg/zoro.jpg' %}" alt="Zoro">
+          <h4>Zoro Action Figure</h4>
+          <p>Rs.1300</p>
+          <button>Add to cart</button>
+        </div>
+        <div class="product">
+          <img src="{% static 'prouctimg/gojo.jpg' %}" alt="Gojo">
+          <h4>Gojo Action Figure</h4>
+          <p>Rs.1350</p>
+          <button>Add to cart</button>
+        </div>
+        <div class="product">
+          <img src="{% static 'prouctimg/kakashi.jpg' %}" alt="Kakashi">
+          <h4>Kakashi Action Figure</h4>
+          <p>Rs.1150</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="product-section">
+      <h2>Featured Products</h2>
+      <div class="products">
+        <div class="product">
+          <img src="{% static 'prouctimg/luffybox.jpg' %}" alt="luffybox">
+          <h4>Luffy Light Box</h4>
+          <p>Rs.1900</p>
+          <button>Add to cart</button>
+        </div>
+        <div class="product">
+          <img src="{% static 'prouctimg/itach box.jpg' %}" alt="itachi">
+          <h4>Itachi Light Box</h4>
+          <p>Rs.1900</p>
+          <button>Add to cart</button>
+        </div>
+        <div class="product">
+          <img src="{% static 'prouctimg/obitomask.jpg' %}" alt="obito">
+          <h4>Obito Mask</h4>
+          <p>Rs.900</p>
+          <button>Add to cart</button>
+        </div>
+      </div>
+    </section>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-  <section class="product-section">
-    <h2>New Arrivals</h2>
-    <div class="products">
-      <div class="product">
-        <img src="{% static 'prouctimg/zoro.jpg' %}" alt="Zoro">
-        <h4>Zoro Action Figure</h4>
-        <p>Rs.1300</p>
-        <button>Add to cart</button>
-      </div>
-      <div class="product">
-        <img src="{% static 'prouctimg/gojo.jpg' %}" alt="Gojo">
-        <h4>Gojo Action Figure</h4>
-        <p>Rs.1350</p>
-        <button>Add to cart</button>
-      </div>
-      <div class="product">
-        <img src="{% static 'prouctimg/kakashi.jpg' %}" alt="Kakashi">
-        <h4>Kakashi Action Figure</h4>
-        <p>Rs.1150</p>
-        <button>Add to cart</button>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="product-section">
-    <h2>Featured Products</h2>
-    <div class="products">
-      <div class="product">
-        <img src="{% static 'prouctimg/luffybox.jpg' %}" alt="luffybox">
-        <h4>Luffy Light Box</h4>
-        <p>Rs.1900</p>
-        <button>Add to cart</button>
-      </div>
-      <div class="product">
-        <img src="{% static 'prouctimg/itach box.jpg' %}" alt="itachi">
-        <h4>Itachi Light Box</h4>
-        <p>Rs.1900</p>
-        <button>Add to cart</button>
-      </div>
-      <div class="product">
-        <img src="{% static 'prouctimg/obitomask.jpg' %}" alt="obito">
-        <h4>Obito Mask</h4>
-        <p>Rs.900</p>
-        <button>Add to cart</button>
-      </div>
-    </div>
-  </section>
-
   <footer class="footer">
     <p>📞 9847225678 | 📍 Chyasal, Lalitpur | ✉️ otaku_mart677@gmail.com</p>
   </footer>
