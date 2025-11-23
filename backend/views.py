@@ -6,3 +6,6 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def home(request):
     return render(request, 'dashboard.html')
+
+def products_page(request):
+    return render(request, 'products.html')
