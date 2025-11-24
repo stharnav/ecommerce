@@ -5,6 +5,51 @@
     <meta charset="UTF-8">
     <title>Products</title>
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <style>
+       .search-box {
+          width: 250px;
+          padding: 10px;
+          margin-bottom: 20px;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          font-size: 14px;
+        }
+
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgb(130, 130, 130);
+        }
+
+        .styled-table th {
+           background: #f2f2f2;
+           padding: 12px;
+           text-align: left;
+           font-weight: bold;
+           border-bottom: 2px solid #ddd;
+           border-right: 1px solid #ccc;
+        }
+
+        .styled-table td {
+          padding: 12px;
+          border-bottom: 1px solid #e1e1e1;
+          border-right: 1px solid #ccc;
+        }
+
+        .styled-table th:last-child,
+        .styled-table td:last-child {
+          border-right: none;
+        }
+
+        .styled-table tbody tr:hover {
+           background: #fafafa;
+           transition: 0.2s ease-in-out;
+          }
+    </style>
 </head>
 
 <body>
@@ -22,16 +67,42 @@
 
 <div class="sidebar" id="sidebar">
     <ul>
-        <li><span class="icon">🏠</span><span class="text">Dashboard</span></li>
-        <li><span class="icon">👤</span><span class="text">Users</span></li>
 
-        <li onclick="window.location.href='{% url 'products' %}';" style="cursor: pointer;">
-            <span class="icon">📦</span>
-            <span class="text">Products</span>
+        <li>
+            <a href="{% url 'dashboard' %}">
+                <span class="icon">🏠</span>
+                <span class="text">Dashboard</span>
+            </a>
         </li>
 
-        <li><span class="icon">🛒</span><span class="text">Orders</span></li>
-        <li><span class="icon">⚙️</span><span class="text">Settings</span></li>
+        <li>
+            <a href="#">
+                <span class="icon">👤</span>
+                <span class="text">Users</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <span class="icon">📦</span>
+                <span class="text">Products</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <span class="icon">🛒</span>
+                <span class="text">Orders</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <span class="icon">⚙️</span>
+                <span class="text">Settings</span>
+            </a>
+        </li>
+
     </ul>
 </div>
 
@@ -39,30 +110,54 @@
 
     <h1>Products List</h1>
 
-    <table border="1" cellpadding="10" cellspacing="0" style="background:white; width:100%; border-radius:10px;">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price ($)</th>
-            <th>Stock</th>
-        </tr>
+    <input type="text" id="searchInput" class="search-box" placeholder="Search products...">
 
-        <tr>
-            <td>1</td>
-            <td>Product A</td>
-            <td>25</td>
-            <td>50</td>
-        </tr>
+    <table class="styled-table" id="productsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price ($)</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
 
-        <tr>
-            <td>2</td>
-            <td>Product B</td>
-            <td>40</td>
-            <td>20</td>
-        </tr>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Zoro Action Figure</td>
+                <td>25</td>
+                <td>None</td>
+                <td>None</td>
+                <td>50</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>key Chain</td>
+                <td>40</td>
+                <td>None</td>
+                <td>None</td>
+                <td>20</td>
+            </tr>
+        </tbody>
     </table>
 
 </div>
+
+      <script>
+         const sidebar = document.getElementById("sidebar");
+         const content = document.getElementById("content");
+         const toggleBtn = document.getElementById("toggleBtn");
+
+        toggleBtn.onclick = () => {
+            sidebar.classList.toggle("collapse");
+            content.classList.toggle("collapse");
+        };
+        </script>
+
 
 </body>
 </html>

@@ -9,3 +9,6 @@ def home(request):
 
 def products_page(request):
     return render(request, 'products.html')
+
+def dashboard_page(request):
+    return render(request,'dashboard.html')
