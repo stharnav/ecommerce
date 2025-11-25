@@ -12,3 +12,9 @@ def products_page(request):
 
 def dashboard_page(request):
     return render(request,'dashboard.html')
+
+def order_page(request):
+    return render(request,'order.html')
+
+def user_page(request):
+    return render(request,'users.html')
