@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Products</title>
+    <title>Orders</title>
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
     <style>
        .search-box {
@@ -50,7 +50,6 @@
            transition: 0.2s ease-in-out;
           }
     </style>
-    
 </head>
 
 <body>
@@ -77,14 +76,14 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="{% url 'users' %}">
                 <span class="icon">👤</span>
                 <span class="text">Users</span>
             </a>
         </li>
 
         <li>
-            <a href="#">
+            <a href="{% url 'products' %}">
                 <span class="icon">📦</span>
                 <span class="text">Products</span>
             </a>
@@ -107,9 +106,9 @@
     </ul>
 </div>
 
-<div class="content" id="content">
+<div class="content">
 
-    <h1>Products List</h1>
+    <h1>Users List</h1>
 
     <input type="text" id="searchInput" class="search-box" placeholder="Search products...">
 
@@ -117,11 +116,12 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Price ($)</th>
-                <th>Category</th>
-                <th>Description</th>
-                <th>Stock</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Sex</th>
+                <th>Date Of Birth</th>
+                <th>Role</th>
+                <th>Address</th>
                 <th>Created At</th>
                 <th>Updated At</th>
             </tr>
@@ -129,25 +129,27 @@
 
         <tbody>
             <tr>
-                <td>1</td>
-                <td>Zoro Action Figure</td>
-                <td>25</td>
-                <td>None</td>
-                <td>None</td>
-                <td>50</td>
-                <td>2025-02-14</td>
-                <td>2025-02-17</td>
+                <td>001</td>
+                <td>Subash</td>
+                <td>Shrestha</td>
+                <td>Male</td>
+                <td>2002-02-14</td>
+                <td>Customer</td>
+                <td>Imadol</td>
+                <td>2025-09-12</td>
+                <td>2025-09-29</td>
             </tr>
-
-            <tr>
-                <td>2</td>
-                <td>key Chain</td>
-                <td>40</td>
-                <td>None</td>
-                <td>None</td>
-                <td>20</td>
-                <td>2025-03-20</td>
-                <td>2025-04-03</td>
+               
+             <tr>
+                <td>002</td>
+                <td>Anjali</td>
+                <td>Yonjan</td>
+                <td>Female</td>
+                <td>2004-05-21</td>
+                <td>Customer</td>
+                <td>Laghankhel</td>
+                <td>2025-10-22</td>
+                <td>2025-12-01</td>
             </tr>
         </tbody>
     </table>

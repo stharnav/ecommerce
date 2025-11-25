@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Products</title>
+    <title>Orders</title>
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
     <style>
        .search-box {
@@ -50,7 +50,6 @@
            transition: 0.2s ease-in-out;
           }
     </style>
-    
 </head>
 
 <body>
@@ -77,21 +76,21 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="{% url 'users' %}">
                 <span class="icon">👤</span>
                 <span class="text">Users</span>
             </a>
         </li>
 
         <li>
-            <a href="#">
+            <a href="{% url 'products' %}">
                 <span class="icon">📦</span>
                 <span class="text">Products</span>
             </a>
         </li>
 
         <li>
-            <a href="#">
+            <a href="{% url 'orders' %}">
                 <span class="icon">🛒</span>
                 <span class="text">Orders</span>
             </a>
@@ -107,9 +106,9 @@
     </ul>
 </div>
 
-<div class="content" id="content">
+<div class="content">
 
-    <h1>Products List</h1>
+    <h1>Orders List</h1>
 
     <input type="text" id="searchInput" class="search-box" placeholder="Search products...">
 
@@ -117,37 +116,48 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th>Order Name</th>
                 <th>Price ($)</th>
-                <th>Category</th>
-                <th>Description</th>
-                <th>Stock</th>
+                <th>Quantity</th>
+                <th>Product ID</th>
+                <th>User ID</th>
+                <th>Order Status</th>
                 <th>Created At</th>
-                <th>Updated At</th>
             </tr>
         </thead>
 
         <tbody>
             <tr>
-                <td>1</td>
+                <td>001</td>
                 <td>Zoro Action Figure</td>
-                <td>25</td>
-                <td>None</td>
-                <td>None</td>
-                <td>50</td>
-                <td>2025-02-14</td>
-                <td>2025-02-17</td>
+                <td>950</td>
+                <td>1</td>
+                <td>1</td>
+                <td>101</td>
+                <td>Pending...</td>
+                <td>2025-10-25</td>
             </tr>
 
             <tr>
-                <td>2</td>
-                <td>key Chain</td>
+                <td>002</td>
+                <td>Aot Key Chain</td>
                 <td>40</td>
-                <td>None</td>
-                <td>None</td>
-                <td>20</td>
-                <td>2025-03-20</td>
-                <td>2025-04-03</td>
+                <td>2</td>
+                <td>1</td>
+                <td>101</td>
+                <td>Pending...</td>
+                <td>2025-10-26</td>
+            </tr>
+
+            <tr>
+                <td>003</td>
+                <td>Aot Key Chain</td>
+                <td>40</td>
+                <td>5</td>
+                <td>2</td>
+                <td>102</td>
+                <td>Pending...</td>
+                <td>2025-11-05</td>
             </tr>
         </tbody>
     </table>

@@ -26,32 +26,42 @@
     </div>
 
     <div class="sidebar" id="sidebar">
+    <ul>
+        <li>
+            <a href="{% url 'dashboard' %}">
+                <span class="icon">🏠</span>
+                <span class="text">Dashboard</span>
+            </a>
+        </li>
 
-    <a href="{% url 'dashboard' %}" class="menu-item">
-        <div class="icon">🏠</div>
-        <div class="text">Dashboard</div>
-    </a>
+        <li>
+            <a href="#">
+                <span class="icon">👤</span>
+                <span class="text">Users</span>
+            </a>
+        </li>
 
-    <a href="#" class="menu-item">
-        <div class="icon">👤</div>
-        <div class="text">Users</div>
-    </a>
+        <li>
+            <a href="{% url 'products' %}">
+                <span class="icon">📦</span>
+                <span class="text">Products</span>
+            </a>
+        </li>
 
-    <a href="{% url 'products' %}" class="menu-item">
-        <div class="icon">📦</div>
-        <div class="text">Products</div>
-    </a>
+        <li>
+            <a href="#">
+                <span class="icon">🛒</span>
+                <span class="text">Orders</span>
+            </a>
+        </li>
 
-    <a href="#" class="menu-item">
-        <div class="icon">🛒</div>
-        <div class="text">Orders</div>
-    </a>
-
-    <a href="#" class="menu-item">
-        <div class="icon">⚙️</div>
-        <div class="text">Settings</div>
-    </a>
-
+        <li>
+            <a href="#">
+                <span class="icon">⚙️</span>
+                <span class="text">Settings</span>
+            </a>
+        </li>
+    </ul>
 </div>
 
 
