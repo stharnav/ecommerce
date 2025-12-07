@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Settings</title>
+
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+
+<body>
+
+{% include "components/navbar.html" %}
+{% include "components/sidebar.html" %}
+
+<div class="content" id="content">
+
+    <h1>Notification Settings</h1>
+
+    <div class="notification-container">
+
+        <div class="notify-card">
+            <h3>Email Notifications</h3>
+            <p>Receive alerts in your email inbox.</p>
+
+            <label class="notify-switch">
+                <input type="checkbox" id="emailToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="notify-card">
+            <h3>Order Alerts</h3>
+            <p>Get notifications when new orders arrive.</p>
+
+            <label class="notify-switch">
+                <input type="checkbox" id="orderToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="notify-card">
+            <h3>Low Stock Alerts</h3>
+            <p>Be notified when product stock is low.</p>
+
+            <label class="notify-switch">
+                <input type="checkbox" id="stockToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="notify-card">
+            <h3>System Updates</h3>
+            <p>Get notified when system updates are available.</p>
+
+            <label class="notify-switch">
+                <input type="checkbox" id="systemToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const settings = ["emailToggle", "orderToggle", "stockToggle", "systemToggle"];
+
+    settings.forEach(setting => {
+        const toggle = document.getElementById(setting);
+
+        if (localStorage.getItem(setting) === "enabled") {
+            toggle.checked = true;
+        }
+
+        toggle.addEventListener("change", () => {
+            if (toggle.checked) {
+                localStorage.setItem(setting, "enabled");
+            } else {
+                localStorage.setItem(setting, "disabled");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

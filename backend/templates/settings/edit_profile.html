@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+
+<body>
+
+{% include "components/navbar.html" %}
+{% include "components/sidebar.html" %}
+
+<div class="content" id="content">
+    <h1>Edit Profile</h1>
+
+    <div class="edit-profile-card">
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="name" value="{{ user.first_name }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" value="{{ user.username }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" value="{{ user.email }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Profile Image</label>
+                <input type="file" name="profile_image">
+            </div>
+
+            <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+
+    </div>
+</div>
+
+<script>
+    const sidebar = document.getElementById("sidebar");
+    const content = document.getElementById("content");
+    const toggleBtn = document.getElementById("toggleBtn");
+
+    toggleBtn.onclick = () => {
+        sidebar.classList.toggle("collapse");
+        content.classList.toggle("collapse");
+    };
+</script>
+
+</body>
+</html>

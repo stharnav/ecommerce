@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+
+<body>
+
+{% include "components/navbar.html" %}
+
+{% include "components/sidebar.html" %}
+
+<div class="content" id="content">
+    <h1>Settings</h1>
+
+    <div class="settings-container">
+
+        <div class="setting-card">
+            <div class="icon">👤</div>
+            <h3>Profile Settings</h3>
+            <p>Update your name, email, and profile details.</p>
+            <a href="{% url 'edit_profile' %}">Edit Profile →</a>
+        </div>
+
+        <div class="setting-card">
+            <div class="icon">🔑</div>
+            <h3>Change Password</h3>
+            <p>Keep your account secure by updating your password.</p>
+            <a href="{% url 'change_password' %}">Change Password →</a>
+        </div>
+
+        <div class="setting-card">
+            <div class="icon">🎨</div>
+            <h3>Appearance</h3>
+            <p>Switch between dark or light mode.</p>
+            <label class="switch">
+              <input type="checkbox"  id="themeToggle">
+              <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="setting-card">
+            <div class="icon">🔔</div>
+            <h3>Notifications</h3>
+            <p>Manage email and system notifications.</p>
+            <a href="{% url 'notification_settings' %}">Manage Notifications →</a>
+        </div>
+
+        <div class="setting-card">
+            <div class="icon">🔒</div>
+            <h3>Privacy</h3>
+            <p>Control what personal data is shared.</p>
+            <a href="{% url 'privacy_settings' %}">Privacy Options →</a>
+        </div>
+
+        <div class="setting-card">
+            <div class="icon">⚙️</div>
+            <h3>System Preferences</h3>
+            <p>Basic system configurations & setup.</p>
+            <a href="{% url 'system_preferences' %}">System Settings →</a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        body.classList.add("dark-mode");
+        themeToggle.checked = true;
+    }
+
+    themeToggle.addEventListener("change", () => {
+        if (themeToggle.checked) {
+            body.classList.add("dark-mode");
+            localStorage.setItem("theme", "dark");
+        } else {
+            body.classList.remove("dark-mode");
+            localStorage.setItem("theme", "light");
+        }
+    });
+
+    const sidebar = document.getElementById("sidebar");
+    const content = document.getElementById("content");
+    const toggleBtn = document.getElementById("toggleBtn");
+
+    toggleBtn.onclick = () => {
+        sidebar.classList.toggle("collapse");
+        content.classList.toggle("collapse");
+    };
+</script>
+
+</body>
+</html>

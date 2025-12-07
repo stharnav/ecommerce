@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Preferences</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+
+<body>
+
+{% include "components/navbar.html" %}
+{% include "components/sidebar.html" %}
+
+<div class="content" id="content">
+
+    <h1>System Preferences</h1>
+
+    <div class="system-container">
+
+        <div class="system-card">
+            <h3>Language</h3>
+            <p>Select your preferred system language.</p>
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="np">Nepali</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+            </select>
+        </div>
+
+        <div class="system-card">
+            <h3>Time Zone</h3>
+            <p>Select your preferred time zone.</p>
+            <select id="timezoneSelect">
+                <option value="UTC+5:45">Nepal Standard Time (UTC+5:45)</option>
+                <option value="UTC">UTC</option>
+                <option value="UTC-5">EST (UTC-5)</option>
+                <option value="UTC+1">CET (UTC+1)</option>
+            </select>
+        </div>
+
+        <div class="system-card">
+            <h3>Date Format</h3>
+            <p>Select how dates are displayed in the system.</p>
+            <select id="dateFormatSelect">
+                <option value="dd-mm-yyyy">DD-MM-YYYY</option>
+                <option value="mm-dd-yyyy">MM-DD-YYYY</option>
+                <option value="yyyy-mm-dd">YYYY-MM-DD</option>
+            </select>
+        </div>
+
+        <div class="system-card">
+            <h3>24-Hour Clock</h3>
+            <p>Enable or disable 24-hour time display.</p>
+            <label class="switch">
+                <input type="checkbox" id="clockToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    const elements = ["languageSelect", "timezoneSelect", "dateFormatSelect", "clockToggle"];
+
+    elements.forEach(id => {
+        const el = document.getElementById(id);
+
+        if (localStorage.getItem(id)) {
+            if(el.type === "checkbox"){
+                el.checked = localStorage.getItem(id) === "enabled";
+            } else {
+                el.value = localStorage.getItem(id);
+            }
+        }
+
+        el.addEventListener("change", () => {
+            if(el.type === "checkbox"){
+                localStorage.setItem(id, el.checked ? "enabled" : "disabled");
+            } else {
+                localStorage.setItem(id, el.value);
+            }
+        });
+    });
+
+    const sidebar = document.getElementById("sidebar");
+    const content = document.getElementById("content");
+    const toggleBtn = document.getElementById("toggleBtn");
+
+    toggleBtn.onclick = () => {
+        sidebar.classList.toggle("collapse");
+        content.classList.toggle("collapse");
+    };
+</script>
+
+</body>
+</html>
